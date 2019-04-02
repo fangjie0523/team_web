@@ -1,0 +1,16 @@
+.db {
+  display: inline-block;
+}
+
+.flex {
+  display: flex;
+}
+
+.fr {
+  float: right;
+}
+
+.cp {
+  cursor: pointer;
+  text-decoration: none !important;
+}
