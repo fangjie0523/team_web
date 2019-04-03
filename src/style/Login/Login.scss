@@ -1,7 +1,11 @@
+@import '../common/common.scss';
 .login-page {
   width: 100vw;
   height: 100vh;
-  background: rgb(73, 76, 235);
+  // background-image: url('../../images/background2@2x.png');
+  background-position: 0px 0px;
+  background-repeat: no-repeat;
+  background-size: cover;
   .login-container {
     width: 600px;
     height: 500px;
@@ -19,6 +23,55 @@
     .login-title{
       color: #0049b0;
       font-size: 30px;
+    }
+    .login-input{
+      width: 420px;
+      height: 36px;
+      margin-top: 36px;
+      line-height: 36px;
+      border-bottom: 1px solid #e5e8ec;
+      margin-top: 36px;
+      .login-textarea{
+        background-color: $c-fb;
+        color: rgba(0, 0, 0, 0.45);
+        width: 200px;
+        height: 21px;
+        line-height: 21px;
+        vertical-align: middle;
+        outline: none;
+        border: none;
+        margin-left: 5px;
+        display: inline-block;
+        font-size: 14px;
+      }
+      .pwd-eye{
+        color: #717d94;
+      }
+    }
+    .change-user-type{
+      color: #717d94;
+      font-size: 14px;
+      margin: 20px 10px 0px 10px;
+    }
+    .login-buttons{
+      font-size: 14px;
+      margin: 20px 120px 0px 0px;
+      .login-button{
+        color: rgb(0, 73, 176);
+      }
+    }
+    .login-jump {
+      width:220px;
+      height: 46px;
+      background: linear-gradient(to right, #5098FC,$c-b0);
+      color: #fff;
+      display: block;
+      font-size: 26px;
+      margin: 50px 120px 0px 0px;
+      border: none;
+      &:hover {
+        opacity: 0.75;
+      }
     }
   }
 }
