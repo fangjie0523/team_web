@@ -5,8 +5,7 @@ export default class HomePage extends Component {
   render() {
     return (
       <div>
-        <a href='/Login'>跳转到Login</a>
-          {/* <Link tp='/Login'>跳转到Login</Link> */}
+        <Link to='/Login'>跳转到Login</Link>
       </div>
     )
   }

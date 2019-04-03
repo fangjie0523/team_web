@@ -11,7 +11,6 @@ class App extends Component {
         <Provider store={store}>
             <div className="App">
                 <SetRouter />
-                {/* <Login /> */}
             </div>
         </Provider>
     );
