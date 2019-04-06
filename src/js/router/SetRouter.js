@@ -8,7 +8,7 @@ class SetRouter extends Component {
     render() {
         return (
             <Router>
-                <Route exact path='/' component={HomePage} />
+                <Route exact path='/' exact component={HomePage} />
                 <Route path='/login' component={Login} />
                 <Route path='/register' component={Register} />
             </Router>

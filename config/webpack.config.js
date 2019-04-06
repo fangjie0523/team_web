@@ -468,6 +468,12 @@ module.exports = function(webpackEnv) {
       ],
     },
     plugins: [
+      new webpack.ProvidePlugin({
+        $: 'jquery',
+        jQuery: 'jquery',
+        jquery: 'jquery',
+        Popper: ['popper.js', 'default']
+      }),
       // Generates an `index.html` file with the <script> injected.
       new HtmlWebpackPlugin(
         Object.assign(
@@ -601,5 +607,5 @@ module.exports = function(webpackEnv) {
     // Turn off performance processing because we utilize
     // our own hints via the FileSizeReporter
     performance: false,
-  };
+  }; 
 };
