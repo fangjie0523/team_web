@@ -26,6 +26,7 @@ export function myFetch(url, options, token) {
             // }
             req.open(options.method, _url)
         } else {
+            console.log(options.method)
             req.open(options.method, url /*+ '?_=' + new Date().getTime()*/)
         }
         req.setRequestHeader('Content-Type', 'application/json')

@@ -39,7 +39,10 @@ class register extends Component {
                 question_pw: answer
             }
         })
-        .then(console.log('注册成功'))
+            .then(res => JSON.parse(res))
+            .then(json => {
+                console.log(json)
+            })
     }
 
     render() {
