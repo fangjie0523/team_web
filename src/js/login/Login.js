@@ -16,7 +16,7 @@ class Login extends Component {
     }
 
     doLogin(){
-        let { actions } = this.props
+        let { actions, history } = this.props
         let email = $('.email').val()
         let password = $('.password').val()
         if(!window.empty.check(email)){
@@ -36,6 +36,12 @@ class Login extends Component {
                 if(json.status === 1) {
                     actions.doLoginOk(Object.assign({}, json.data))
                     console.log(this.props)
+                    if(json.data.is_admin === -1) {
+                        // window.alert_wait('登陆成功','ok')
+                        history.push('/createTeam')
+                        // setTimeout(history.push('/createTeam'),2500)
+                        
+                    }
                 }
             })
     }
