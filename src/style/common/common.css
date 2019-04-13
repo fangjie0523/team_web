@@ -1,3 +1,4 @@
+@charset "UTF-8";
 .db {
   display: inline-block;
 }
@@ -13,4 +14,14 @@
 .cp {
   cursor: pointer;
   text-decoration: none !important;
+}
+
+.omit {
+  overflow: hidden;
+  /*超出部分隐藏*/
+  white-space: nowrap;
+  /*不换行*/
+  text-overflow: ellipsis;
+  /*超出部分省略号显示*/
+  word-break: break-all;
 }

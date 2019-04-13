@@ -1,12 +1,14 @@
+import { handleActions } from 'redux-actions'
 
-const initialState ={
-    user: []
+const initialState = {
+    user: ''
 }
 
-export default function(state = initialState, action){
-    switch (action.type) {
-        
-        default:
-            return state;
+export default handleActions({
+    DO_LOGIN_OK: (state, action) => {
+        return {
+            ...state,
+            user: action.payload
+        }
     }
-}
+}, initialState)

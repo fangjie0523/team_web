@@ -1,18 +1,30 @@
 @import './color.scss';
-.db {
-    display: inline-block;
-  }
-  
-  .flex {
-    display: flex;
-  }
-  
-  .fr {
-    float: right;
-  }
 
-  //下拉按钮
-  .cp {
-    cursor: pointer;
-    text-decoration: none !important;
-  }
+.db {
+  display: inline-block;
+}
+
+.flex {
+  display: flex;
+}
+
+.fr {
+  float: right;
+}
+
+//下拉按钮
+.cp {
+  cursor: pointer;
+  text-decoration: none !important;
+}
+
+//省略显示
+.omit {
+  overflow: hidden;
+  /*超出部分隐藏*/
+  white-space: nowrap;
+  /*不换行*/
+  text-overflow: ellipsis;
+  /*超出部分省略号显示*/
+  word-break: break-all;
+}

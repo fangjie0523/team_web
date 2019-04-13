@@ -6,6 +6,37 @@
   background-position: 0px 0px;
   background-repeat: no-repeat;
   background-size: cover;
+  .login-header {
+    color: #0049b0;
+    font-size: 14px;
+    width: 122px;
+    height: 63px;
+    margin-left: 37px;
+    padding-top: 30px;
+    svg{
+      color: #fff;
+      width: 21px;
+      height: 21px;
+    }
+    .back {
+      vertical-align: top;
+      margin-left: 8px;
+      color:#fff;
+    }
+    .join-menu{
+      position: absolute;
+      top:30px;
+      right:30px;
+      cursor: default;
+      font-size:24px;
+      .span-a{
+        color:rgba(0,0,0,0.45);
+      }
+      .span-b{
+        color:#fff;
+      }
+    }
+  }
   .login-container {
     width: 600px;
     height: 500px;
