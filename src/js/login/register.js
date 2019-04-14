@@ -4,7 +4,6 @@ import { connect } from 'react-redux'
 import $ from 'jquery'
 import * as Api from '../api/Api'
 import { myFetch } from '../utils/netUtils'
-import { fetchUser } from '../actions/UserActions'
 import backgroundf from '../../images/background2@2x.png'
 
 
@@ -88,4 +87,4 @@ class register extends Component {
     }
 }
 
-export default connect(null, { fetchUser })(register)
+export default connect()(register)

@@ -41,6 +41,10 @@ class Login extends Component {
                         history.push('/createTeam')
                         // setTimeout(history.push('/createTeam'),2500)
                         
+                    }else if(json.data.is_admin === 0) {
+                        history.push('/index/teamMsg')
+                    }else {
+                        history.push('/index/chooseTeam')
                     }
                 }
             })

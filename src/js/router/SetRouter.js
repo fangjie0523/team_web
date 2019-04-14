@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Router , Route, Switch } from 'react-router-dom'
+import { Route, Switch } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import * as UserAction from '../actions/UserActions'
@@ -12,29 +12,20 @@ import TeamMsg from '../TeamMsg'
 import history from '../history'
 import CreateTeam from '../team/CreateTeam'
 
-class Test extends Component {
-    render() {
-        return (
-            <div className='main-container'>
-                
-            </div>
-        )
-    }
-}
 
 class SetRouter extends Component {
+    constructor(props){
+        super(props)
+        this.state = {
+
+        }
+    }
     render() {
         return (
             <div>
-                <Router history={history}>
-                    {/* <Menu />
-                    <Route path='/index/chooseTeam' component={ChooseTeam} />
-                    <Route path='/index/teamMsg' component={TeamMsg} /> */}
-                    <Route exact path='/' component={HomePage} />
-                    <Route path='/login' component={Login} />
-                    <Route path='/register' component={Register} />
+                <Switch>
                     <Route path='/createTeam' component={CreateTeam} />
-                </Router>
+                </Switch>
             </div>
         )
     }
