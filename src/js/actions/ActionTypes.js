@@ -1,0 +1,1 @@
+export const DO_LOGIN_OK = 'DO_LOGIN_OK'
