@@ -1,0 +1,44 @@
+.personal-msg {
+  position: relative;
+  left: 0;
+  bottom: 0;
+  margin: 34px 18px 0 260px;
+  .personal-msg-header {
+    top: 30px;
+    z-index: 1;
+    min-width: 750px;
+    position: fixed;
+    height: 80px;
+    .title {
+      float: left;
+      font-size: 30px;
+      color: $c-5f;
+    }
+  }
+  .personal-msg-main {
+    background: #fbfbfb;
+    position: relative;
+    left: 0;
+    top: 100px;
+    text-align: center;
+    padding: 0px 20px;
+    .personal-msg-name {
+      font-size: 20px;
+      width: 500px;
+      color: $c-5f;
+      margin: 20px 0px;
+      .msg-name-input {
+        width: 280px;
+        color: #717d94;
+        background-color: rgb(240, 242, 244);
+        border: none;
+        outline: none;
+        vertical-align: middle;
+        resize: none;
+        &:focus {
+          border: none;
+        }
+      }
+    }
+  }
+}

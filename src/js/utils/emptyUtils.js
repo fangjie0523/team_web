@@ -11,6 +11,7 @@ window.empty = {
         if (typeof obj === 'undefined') {
             return false
         }
+        // eslint-disable-next-line valid-typeof
         if (typeof obj === '') {
             return false
         }

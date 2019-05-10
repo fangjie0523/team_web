@@ -137,12 +137,12 @@ window.alert_wait = function (str, state) {
     let bgColor = '#fff'
     // let bgColor = '#f6ffed'
     // let borderStyle = '1px solid #b7eb8f'
-    let icon = '#icon-check-circle-fill'
+    let icon = '#iconcheck-circle-fill'
     let fillColor = '#52c41a'
     if (state === 'nok') {
         // bgColor = '#fff1f0'
         // borderStyle = '1px solid #ffa39e'
-        icon = '#icon-close-circle-fill'
+        icon = '#iconclose-circle-fill'
         fillColor = '#f5222d'
     } else if (state === 'ok') {
 

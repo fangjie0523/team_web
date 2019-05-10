@@ -2,14 +2,47 @@
 @import './Menu.scss';
 @import './Company.scss';
 @import './TeamMsg.scss';
+@import './ChooseTeam.scss';
+@import './Login/Recover.scss';
+@import './TeamMember.scss';
+@import './Competition.scss';
+@import './PersonalMsg.scss';
 
 .icon-svg {
-    width: 1.4em;
-    height: 1.4em;
-    // font-weight:bold;
-    vertical-align: -0.25em;
-    fill: currentColor;
-    overflow: hidden;
-    margin-right: 10px;
-  }
+  width: 1.4em;
+  height: 1.4em;
+  // font-weight:bold;
+  vertical-align: -0.25em;
+  fill: currentColor;
+  overflow: hidden;
+  margin-right: 10px;
+}
+.alert-wait {
+  position: fixed;
+  top: 10px;
+  left: 50%;
+  animation: myMove 1s;
+  transform: translate(-50%,0);
+  padding: 8px 15px 8px 37px;
+  border-radius: 4px;
+  font-size: 14px;
+  color: rgba(0, 0, 0, .65);
+  z-index: 10009;
+  box-shadow:0 4px 12px rgba(0,0,0,.15);
+}
+.icon-check {
+  position:absolute;
+  top:10px;
+  left:16px;
+  width: 16px;
+  height: 16px;
+}
+@keyframes myMove {
+  0% {top:0px; opacity:0;}
+  100% {top:10px; opacity:1;}
+}
+@keyframes outMove {
+  0% {top:10px; opacity:1;}
+  100% {top:0px; opacity:0;}
+}
   

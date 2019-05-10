@@ -3,14 +3,14 @@ import { Route, Switch } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import * as UserAction from '../actions/UserActions'
-import HomePage from '../HomePage'
-import Login from '../login/Login'
-import Register from '../login/register'
-import Menu from '../components/Menu'
 import ChooseTeam from '../ChooseTeam'
 import TeamMsg from '../TeamMsg'
-import history from '../history'
-import CreateTeam from '../team/CreateTeam'
+import TeamMember from '../TeamMember'
+import Competition from '../Competition'
+import Notice from '../Notice'
+import Apply from '../Apply'
+import Honor from '../Honor'
+import PersonalMsg from '../PersonalMsg'
 
 
 class SetRouter extends Component {
@@ -20,13 +20,23 @@ class SetRouter extends Component {
 
         }
     }
+
+    componentDidMount() {
+        console.log(this.props)
+    }
+
     render() {
         return (
-            <div>
-                <Switch>
-                    <Route path='/createTeam' component={CreateTeam} />
-                </Switch>
-            </div>
+            <Switch>
+                <Route path='/index/teamMsg' component={TeamMsg} />
+                <Route path='/index/chooseTeam' component={ChooseTeam} />
+                <Route path='/index/teamMember' component={TeamMember} />
+                <Route path='/index/competition' component={Competition} />
+                <Route path='/index/notice' component={Notice} />
+                <Route path='/index/apply' component={Apply} />
+                <Route path='/index/honor' component={Honor} />
+                <Route path='/index/personalMsg' component={PersonalMsg} />
+            </Switch>
         )
     }
 }

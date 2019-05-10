@@ -1,7 +1,10 @@
 import { handleActions } from 'redux-actions'
 
+let user = localStorage.getItem('user') ? 
+            JSON.parse(localStorage.getItem('user')) : ''
+
 const initialState = {
-    user: ''
+    user
 }
 
 export default handleActions({

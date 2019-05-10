@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import { Link } from 'react-router-dom'
 import $ from 'jquery'
+import Cookies from 'js-cookie'
 import { bindActionCreators } from 'redux'
 import * as Api from '../api/Api'
 import { myFetch } from '../utils/netUtils'
@@ -13,12 +15,19 @@ class Login extends Component {
         this.state = {
             showPwd: false,
         }
+        this.handleKeyDown = this.handleKeyDown.bind(this)
+    }
+    componentDidMount(){
+        window.addEventListener('keydown', this.handleKeyDown)
+    }
+    componentWillUnmount(){
+        window.removeEventListener('keydown', this.handleKeyDown)
     }
 
     doLogin(){
         let { actions, history } = this.props
         let email = $('.email').val()
-        let password = $('.password').val()
+        let password = this.$md5($('.password').val())
         if(!window.empty.check(email)){
             alert('账号不能为空！')
         }else if(!window.empty.check(password)){
@@ -35,19 +44,23 @@ class Login extends Component {
             .then(json => {
                 if(json.status === 1) {
                     actions.doLoginOk(Object.assign({}, json.data))
+                    Cookies.set('token', json.data.token)
                     console.log(this.props)
                     if(json.data.is_admin === -1) {
-                        // window.alert_wait('登陆成功','ok')
                         history.push('/createTeam')
-                        // setTimeout(history.push('/createTeam'),2500)
-                        
                     }else if(json.data.is_admin === 0) {
                         history.push('/index/teamMsg')
                     }else {
                         history.push('/index/chooseTeam')
                     }
-                }
+                } 
             })
+    }
+
+    handleKeyDown(e){
+        if(e.keyCode == 13){
+            this.doLogin()
+        }
     }
 
     render() {
@@ -76,17 +89,17 @@ class Login extends Component {
                             <use xlinkHref={`#icon${showPwd ? 'zheng' : 'bi'}yan`}></use>
                         </svg>
                     </div>
-                    <label className='change-user-type'>
+                    {/* <label className='change-user-type'>
                         <input type='radio' name='user' value='user' />
                         用户
                     </label>
                     <label className='change-user-type'>
                         <input type='radio' name='user' value='manager' />
                         管理员
-                    </label>
+                    </label> */}
                     <div className='login-buttons db fr'>
-                        <a className='login-button' href='/recover'>忘记密码&nbsp;/</a>
-                        <a className='login-button' href='/register'>&nbsp;注册</a>
+                        <Link className='login-button' to='/recover'>忘记密码&nbsp;</Link>
+                        <Link className='login-button' to='/register'>&nbsp;注册</Link>
                     </div>
                     <input className="login-jump cp fr" type="button" value="登&nbsp;&nbsp;&nbsp;录" onClick={() => this.doLogin()} />
                 </div>

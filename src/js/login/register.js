@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import $ from 'jquery'
+import { bindActionCreators } from 'redux'
+import * as UserAction from '../actions/UserActions'
 import * as Api from '../api/Api'
 import { myFetch } from '../utils/netUtils'
 import backgroundf from '../../images/background2@2x.png'
@@ -16,6 +18,7 @@ class register extends Component {
     }
 
     doRegister(){
+        let { history, actions } = this.props
         let email = $('.email').val()
         let question = $('.question').val()
         let answer = $('.answer').val()
@@ -33,14 +36,16 @@ class register extends Component {
             method: 'POST',
             body:{
                 account: email,
-                pw: password,
+                pw: this.$md5(password),
                 question,
                 question_pw: answer
             }
         })
             .then(res => JSON.parse(res))
             .then(json => {
-                console.log(json)
+                window.alert_wait(json.msg,'ok')
+                actions.doLoginOk(json.user_id)
+                setTimeout(history.push('/addPersonalMsg'),2000)
             })
     }
 
@@ -48,13 +53,10 @@ class register extends Component {
         let { showPwd } = this.state
         return (
             <div className='login-page' style={{backgroundImage: `url(${backgroundf})`}}>
-                <div className='login-container'>
+                <div className='login-container' style={{paddingTop: '35px'}}>
                     <h2 className='login-wel'>
-                        Welcome to
+                        用&nbsp;&nbsp;户&nbsp;&nbsp;注&nbsp;&nbsp;册
                     </h2>
-                    <h3 className='login-title'>
-                        The Team Management System
-                    </h3>
                     <div className='register-input login-input'>
                         <div className="db">账号 : &nbsp;</div>
                         <input className="login-textarea email" autoFocus={true} type="text" placeholder="手机号"/>
@@ -87,4 +89,22 @@ class register extends Component {
     }
 }
 
-export default connect()(register)
+function mapStateToProps (state) {
+    return {
+        params: {
+            user: state.user.user
+        }
+    }
+}
+
+function mapDispatchToProps (dispatch) {
+    return {
+        actions: bindActionCreators({...UserAction}, dispatch)
+    }
+}
+
+
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(register)

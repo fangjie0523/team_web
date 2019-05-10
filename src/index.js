@@ -1,11 +1,14 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React from 'react'
+import ReactDOM from 'react-dom'
 import { store } from './js/store/Store'
 import { Provider } from 'react-redux'
+import md5 from 'js-md5'
 import './style/index.scss';
 import 'bootstrap/dist/css/bootstrap.css'
 import Page from './js/page'
-import * as serviceWorker from './serviceWorker';
+import * as serviceWorker from './serviceWorker'
+
+React.Component.prototype.$md5 = md5
 
 ReactDOM.render(
     <Provider store={store}>
